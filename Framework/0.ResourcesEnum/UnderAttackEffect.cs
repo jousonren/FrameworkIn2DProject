@@ -1,0 +1,20 @@
+﻿public enum UnderAttackEnum
+{
+	UnderAttackEffect,
+	ThumpUnderAttackEffect,
+	BaseUnderAttackEffect,
+	SwordBaseUnderAttackEffect,
+	SwordThumpUnderAttackEffect,
+	SwordSpecialUnderAttackEffect,
+	ArrowBaseUnderAttackEffect,
+	ArrowThumpUnderAttackEffect,
+	NormalUnderMagicAttackEffect,
+	FireUnderMagicAttackEffcect,
+	FreezeUnderMagicAttackEffcect,
+	LightingUnderMagicAttackEffect,
+	BloodUnderAttackEffect,
+	BloodUnderAttackEffect2,
+	KnifeBaseUnderAttackEffect,
+	KnifeThumpUnderAttackEffect,
+	FistUnderAttackEffect
+}
