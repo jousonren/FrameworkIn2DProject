@@ -23,7 +23,7 @@ public class MonsterBleedBuffCtl : MonoBehaviour
 	void Start ()
 	{
 		InvokeRepeating ("Play", 0f, cd1);
-		InvokeRepeating ("CreatBleedGround", 1.5f, 1.5f);
+		//InvokeRepeating ("CreatBleedGround", 1.5f, 1.5f);
 	}
 
 	void Play ()

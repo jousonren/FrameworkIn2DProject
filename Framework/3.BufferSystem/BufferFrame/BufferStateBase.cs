@@ -24,7 +24,7 @@ public abstract class BufferStateBase
 	}
 
 	/// <summary>
-	/// 当前Buffer的具体值 -> SpeedUp? Disarm?
+	/// 当前Buffer的具体值 -> (本系统中值为buff本身)
 	/// </summary>
 	/// <value>The state of the curr buffer.</value>
 	public object CurrBufferState {
@@ -37,7 +37,7 @@ public abstract class BufferStateBase
 	/// </summary>
 	/// <value>The curr buffer info.</value>
 	public abstract string CurrBufferInfo {
-		get	;	
+		get;
 	}
 
 	/// <summary>
@@ -48,10 +48,28 @@ public abstract class BufferStateBase
 		set;
 		get;
 	}
-
+    /// <summary>
+    /// 当buff进入时
+    /// </summary>
+    /// <returns></returns>
 	public abstract bool OnEnter ();
-
+    /// <summary>
+    ///buff处于更新中
+    /// </summary>
+    /// <returns></returns>
 	public abstract bool OnUpdate ();
-
+    /// <summary>
+    ///  当加入新的buff并且需要和旧buff融合时
+    /// </summary>
+    /// <param name="args"></param>
+    /// <returns></returns>
+    public virtual bool OnRenovate(BufferArgs args) {
+        CurrArgs.m_ContinuousTime = args.m_ContinuousTime;
+        return true;
+    }
+    /// <summary>
+    /// 当buff结束时
+    /// </summary>
+    /// <returns></returns>
 	public abstract bool OnExit ();
 }

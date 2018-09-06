@@ -19,6 +19,11 @@ public class LoadResourcesMgr : Singleton<LoadResourcesMgr>
 				filePath = "MonsterResources/UnderAttackEffects/FaBaoAttackEffects/" + enumName.ToString ();
 				break;
 			}
+		case "GongFaAttackEffect":
+			{
+				filePath = "MonsterResources/UnderAttackEffects/GongFaAttackEffects/" + enumName.ToString ();
+				break;
+			}
 		case "MonsterProps":
 			{
 				filePath = "MonsterResources/MonsterProps/" + enumName.ToString ();

@@ -3,6 +3,8 @@
 /// </summary>
 public class BufferType
 {
+	#region 怪物Buff类型
+
 	/// <summary>
 	///非周期性正面Buffer
 	/// </summary>
@@ -37,10 +39,14 @@ public class BufferType
 		/// 增加防御力
 		/// </summary>
 		BufferAddDefensive,
-		/// <summary>
-		/// 复活
-		/// </summary>
-		BufferRelive,
+        /// <summary>
+        /// 护盾
+        /// </summary>
+        BufferShield,
+        /// <summary>
+        /// 复活
+        /// </summary>
+        BufferRelive,
 	}
 
 	/// <summary>
@@ -65,7 +71,11 @@ public class BufferType
 		/// 破甲
 		/// </summary>
 		DeBufferSunderArmor,
-	}
+        /// <summary>
+        /// 易伤
+        /// </summary>
+        DeBuffAptToAtttack,
+    }
 
 	/// <summary>
 	/// 周期性的正面Buffer
@@ -98,4 +108,74 @@ public class BufferType
 		/// </summary>
 		PerDeBufferIgnition,
 	}
+
+	#endregion
+
+	#region 玩家Buff类型
+
+	/// <summary>
+	///玩家的非周期性正面Buffer
+	/// </summary>
+	public enum PlayerBuffer
+	{
+
+	}
+	/// <summary>
+	/// 玩家的非周期性负面Buffer
+	/// </summary>
+	public enum PlayerDeBuffer
+	{
+		/// <summary>
+		/// 玩家减速
+		/// </summary>
+		PlayerDeBufferSlowDown,
+	}
+
+	/// <summary>
+	/// 玩家的周期性的正面Buffer
+	/// </summary>
+	public enum PlayerPerBuffer
+	{
+        /// <summary>
+        /// 回血
+        /// </summary>
+        PlayerBufferAbsort,
+        /// <summary>
+        /// 加防
+        /// </summary>
+        PlayerBufferDefense,
+        /// <summary>
+        /// 加攻
+        /// </summary>
+        PlayerBufferAttack,
+        /// <summary>
+        /// 加速
+        /// </summary>
+        PlayerBufferSpeed,
+    }
+
+    /// <summary>
+    /// 玩家的周期性的负面Buffer
+    /// </summary>
+    public enum PlayerPerDeBuffer
+	{
+        /// <summary>
+		/// 中毒
+		/// </summary>
+		PlayerDeBufferBleed,
+        /// <summary>
+        /// 减防
+        /// </summary>
+        PlayerDeBufferDefense,
+        /// <summary>
+        /// 减攻
+        /// </summary>
+        PlayerDeBufferAttack,
+        /// <summary>
+        /// 减速
+        /// </summary>
+        PlayerDeBufferSpeed,
+    }
+
+	#endregion
 }

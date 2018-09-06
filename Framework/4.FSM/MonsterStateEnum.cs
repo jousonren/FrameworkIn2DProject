@@ -31,7 +31,7 @@ public enum MonsterState
 	/// </summary>
 	UnderControl,
 	/// <summary>
-	/// 被束缚(无法移动,类似于眩晕)
+	/// 被束缚(无法移动,也是眩晕,会被重击及比重击高级的攻击退出状态)
 	/// </summary>
 	Fettered,
 	/// <summary>
@@ -39,11 +39,15 @@ public enum MonsterState
 	/// </summary>
 	UnderAttack,
 	/// <summary>
+	/// 被击退(普通攻击无法打断)
+	/// </summary>
+	Repel,
+	/// <summary>
 	/// 被重击
 	/// </summary>
 	UnderThumpAttack,
 	/// <summary>
-	/// 被冻结（动画暂停）
+	/// 被冻结（动画暂停，不会被攻击退出状态）
 	/// </summary>
 	Frozen,
 	/// <summary>

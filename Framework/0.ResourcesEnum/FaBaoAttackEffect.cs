@@ -1,4 +1,5 @@
 ﻿public enum FaBaoAttackEffect
 {
-	XueDiZi
+	XueDiZi,
+	FuJian
 }

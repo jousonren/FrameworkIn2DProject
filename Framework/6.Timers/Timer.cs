@@ -44,9 +44,34 @@
 	/// </summary>
 	public void Update (float deltaTime)
 	{
-
 		if (isRunning) {
 			currentTime += deltaTime;
+			//计时中途触发事件
+			if (currentTime > middleTime && !hasMiddleTrigger) {
+                if (MiddleCallBack != null) {
+                    MiddleCallBack();
+                }
+                hasMiddleTrigger = true;
+			}
+			//计时结束
+			if (currentTime > triggerTime) {
+				isRunning = false;
+                if (CallBack!=null) {
+                    CallBack();
+                }
+            }
+		}
+	}
+
+	/// <summary>
+	/// Fixeds the update.
+	/// </summary>
+	/// <param name="fixeddDeltaTime">Fixedd delta time.</param>
+	public void FixedUpdate (float fixeddDeltaTime)
+	{
+
+		if (isRunning) {
+			currentTime += fixeddDeltaTime;
 			//计时中途触发事件
 			if (middleTime != 0f && currentTime > middleTime && !hasMiddleTrigger) {
 				MiddleCallBack ();
@@ -87,6 +112,15 @@
 	}
 
 	/// <summary>
+	/// 获取计时器进行了多长时间
+	/// </summary>
+	/// <returns>The time.</returns>
+	public float GetRunTime ()
+	{
+		return currentTime;
+	}
+
+	/// <summary>
 	/// 重置计时器（MiddleTime不需要则为0）,如果计时器在运行中,则计时器重新从0运行
 	/// </summary>
 	/// <param name="TriggerTiem">Trigger tiem.</param>
@@ -107,4 +141,12 @@
 		triggerTime = TriggerTime;
 		middleTime = MiddleTime;
 	}
+
+    /// <summary>
+    ///是否已经出发了中间行为
+    /// </summary>
+    /// <returns></returns>
+    public bool MiddleTriggerOver() {
+        return hasMiddleTrigger;
+    }
 }

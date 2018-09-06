@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Collections;
 
+/// <summary>
+/// 生成随机数的.
+/// </summary>
 public class CreatRandom:Singleton<CreatRandom>
 {
 	/// <summary>
@@ -39,6 +42,32 @@ public class CreatRandom:Singleton<CreatRandom>
 	{
 		Vector2 temp = Random.insideUnitCircle * radius;
 		return (new Vector3 (center.x + temp.x, center.y + temp.y, center.z));
+	}
+
+	/// <summary>
+	/// 返回长方形内的随机点的位置.
+	/// </summary>
+	/// <returns>The random position in rectangle.</returns>
+	/// <param name="center">生成点的位置.</param>
+	/// <param name="up">上方的范围[inclusive].</param>
+	/// <param name="down">下方范围[inclusive].</param>
+	/// <param name="left">左侧范围[inclusive].</param>
+	/// <param name="right">右侧范围[inclusive].</param>
+	public Vector3 GetRandomPosInRectangle (Vector3 center, float up, float down, float left, float right)
+	{
+		return new Vector3 (center.x + Random.Range (-left, right), center.y + Random.Range (-down, up), center.z);
+	}
+
+	/// <summary>
+	/// 返回一个椭圆内的随机位置
+	/// </summary>
+	/// <returns>The random position in ellipse.</returns>
+	/// <param name="center">椭圆圆心.</param>
+	/// <param name="longAxis">X轴上的长轴长度.</param>
+	/// <param name="minorAxis">Y轴上的短轴长度.</param>
+	public Vector3 GetRandomPosInEllipse (Vector3 center, float longAxis, float minorAxis)
+	{
+		return new Vector3 (center.x + Mathf.Cos (Random.Range (0, Mathf.PI)) * Random.Range (0, longAxis), center.y + Mathf.Sin (Random.Range (0, 2 * Mathf.PI)) * Random.Range (0, minorAxis), center.z);
 	}
 
 	/// <summary>
@@ -86,4 +115,14 @@ public class CreatRandom:Singleton<CreatRandom>
 		} while (arrayList.Count < number);
 		return arrayList;
 	}
+    /// <summary>
+    /// 返回从min到max中随机的一个整数（包含min和max）
+    /// </summary>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    /// <returns></returns>
+    public int GetRandomInteger(int min,int max)
+    {
+        return random.Next(min, max);
+    }
 }
